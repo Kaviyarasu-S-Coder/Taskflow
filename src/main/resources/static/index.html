@@ -67,6 +67,10 @@
       </div>
 
       <div class="topbar-right">
+        <button class="btn btn-secondary" id="btn-api-config" style="padding: 0.35rem 0.75rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.4rem;" title="Configure Backend API / Demo Mode">
+          <span id="api-status-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+          <span id="api-status-text">API Mode</span>
+        </button>
         <button class="btn btn-icon" id="btn-notifications-toggle" title="Notifications">
           🔔
           <span class="badge-dot" id="notif-badge" style="display: none;"></span>
@@ -350,6 +354,32 @@
           <input type="text" class="form-control" id="comment-input" placeholder="Write a comment..." required style="flex: 1;">
           <button type="submit" class="btn btn-primary" style="font-size: 0.8rem;">Send</button>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Backend API Settings Modal -->
+<div class="modal-backdrop" id="api-config-modal">
+  <div class="modal-container" style="max-width: 520px;">
+    <div class="modal-header">
+      <h2 style="font-size: 1.15rem; font-weight: 700;">⚙️ Backend Connection & Mode</h2>
+      <button class="close-btn" id="close-api-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.4;">
+        When hosted on Vercel, the frontend can run in <strong>Interactive Demo Mode</strong> or connect to your live Spring Boot backend.
+      </p>
+      
+      <div class="form-group">
+        <label>Live Backend API URL</label>
+        <input type="url" class="form-control" id="api-base-url-input" placeholder="e.g. https://taskflow-api.onrender.com or http://localhost:8080">
+        <small style="color: var(--text-muted); font-size: 0.75rem; display: block; margin-top: 0.25rem;">Leave empty to use default local host or Demo Mode.</small>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; margin-top: 1.25rem;">
+        <button class="btn btn-primary" id="btn-save-api-url" style="flex: 1;">Save & Connect</button>
+        <button class="btn btn-secondary" id="btn-switch-demo" style="flex: 1;">Use Demo Mode</button>
       </div>
     </div>
   </div>
