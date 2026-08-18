@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:taskflow_test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+  flyway:
+    enabled: false
+
+taskflow:
+  jwt:
+    secret: 9a6f8b12c4d3e5f7a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2
+    expiration-ms: 60000
+    refresh-expiration-ms: 120000
+  storage:
+    local-dir: ./target/test-uploads
