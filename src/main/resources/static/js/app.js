@@ -16,6 +16,8 @@ const state = {
 };
 
 // API Helper with JWT Bearer Token Auto-Injection
+const API_BASE = window.TASKFLOW_API_URL || '';
+
 async function apiCall(endpoint, options = {}) {
   const headers = {
     'Content-Type': 'application/json',
@@ -26,8 +28,10 @@ async function apiCall(endpoint, options = {}) {
     headers['Authorization'] = `Bearer ${state.token}`;
   }
 
+  const url = endpoint.startsWith('http') ? endpoint : `${API_BASE}${endpoint}`;
+
   try {
-    const response = await fetch(endpoint, {
+    const response = await fetch(url, {
       ...options,
       headers
     });
