@@ -1,12 +1,9 @@
 {
-  "version": 2,
-  "public": true,
-  "outputDirectory": "src/main/resources/static",
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/src/main/resources/static/$1"
+      "source": "/((?!css|js|favicon.ico).*)",
+      "destination": "/index.html"
     }
   ]
 }
